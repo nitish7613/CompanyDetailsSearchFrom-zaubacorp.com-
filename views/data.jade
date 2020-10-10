@@ -1,0 +1,10 @@
+extends layout
+
+block content
+ .stuff
+  h1= "Company Details"
+  each item in items
+     table(class="table table-striped col-md-12 col-sm-12 col-xs-12")!= item 
+
+   
+             

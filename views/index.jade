@@ -1,0 +1,8 @@
+extends layout
+
+block content
+ .stuff
+  h1= "Company Look Up"
+  form(action="/lookup" method="post")
+   input(class="input" name="cname" type="text")
+   input(type="submit" value="Look up!" class="lookup")

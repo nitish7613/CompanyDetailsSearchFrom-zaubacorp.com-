@@ -8,10 +8,10 @@ var router = express.Router();
 const url1='mongodb://localhost:27017/';
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	res.render('index', { title: 'Express' });
+	res.render('index', { title: 'Search Your Company' });
 });
 
-router.post('/lookup', function(req, res){
+router.post('/company', function(req, res){
     var ani= [];
 	cname = (req.body.cname);
 	url = 'https://www.zaubacorp.com/companysearchresults/' + JSON.stringify(cname);
@@ -21,7 +21,7 @@ router.post('/lookup', function(req, res){
 			var $ = cheerio.load(html);
 			var title;
 
-    //var json = { title : "", release : "", rating : ""};
+   
 
 	    if($('#results').length != 0){
     	console.log("inif");
@@ -46,11 +46,11 @@ router.post('/lookup', function(req, res){
   var dbo = db.db("mydb");
   var myobj = { cname: cname, cin: cin };
 
-  dbo.collection("customers").insertOne(myobj, function(err, res) {
+  dbo.collection("company-data").insertOne(myobj, function(err, res) {
     if (err) throw err;
     console.log("1 document inserted");
 });
- dbo.collection("customers").find({}, function(err, result) {
+ dbo.collection("company-data").find({}, function(err, result) {
     if (err) throw err;
     result.forEach((doc,err)=>{
         assert.equal(null,err);

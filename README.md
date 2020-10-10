@@ -1,6 +1,6 @@
 Node JS application for search companies detail from   zaubacorp.com
 
-Note: Company name is case sensitive.
+Note: Type full name of company.
 
     |npm start
     
